@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <img alt="icon" height="40" id="header_logo" src="assets/img/iconlogodms128.jpg" >
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-list *ngFor="let file of images">
+   <ion-thumbnail slot="start">
+     <ion-img [src]="file.data"></ion-img>
+   </ion-thumbnail>
+   <ion-label class="ion-text-wrap">
+     {{file.name}}
+   </ion-label>
+   <ion-button slot="end" fill="clear" (click)="startUpload(file)">
+     <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+   </ion-button>
+   <ion-button slot="end" fill="clear" (click)="deleteImage(file)">
+     <ion-icon slot="icon-only" name="trash"></ion-icon>
+   </ion-button>
+ </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" expand="full" color="light" (click)="selectImage()">
+      <ion-icon slot="start" name="camera">
+        Select Image
+      </ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
